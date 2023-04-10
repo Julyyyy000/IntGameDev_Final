@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     bool jump1 = false;
     bool jump2 = false;
     bool canDoubleJump = false;
+
+    public GameObject textBox;
+
     /*
     public bool canShoot = false;
 
@@ -164,6 +167,24 @@ public class PlayerMovement : MonoBehaviour
 
         myBody.velocity = new Vector3(moveSpeed, myBody.velocity.y, 0);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("hit trigger");
+        if (collision.gameObject.CompareTag("interactive"))
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                textBox.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        textBox.SetActive(false);
+    }
+
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -1,0 +1,23 @@
+title: Start
+tags: 
+colorID: 0
+position: 320,287
+---
+player: hello.
+[[hello?|question]]
+[[hi.|reply]]
+===
+title: question
+tags: 
+colorID: 0
+position: 440,67
+---
+How are you doing?
+===
+title: reply
+tags: 
+colorID: 0
+position: 659,66
+---
+I am okay.
+===
