@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject textBox;
 
+    int jumpUpLayer;
+    int furnitureLayer;
+
     /*
     public bool canShoot = false;
 
@@ -46,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        jumpUpLayer = LayerMask.NameToLayer("JumpUp");
+        furnitureLayer = LayerMask.NameToLayer("FurnitureLayer");
         //myAnim = GetComponent<Animator>();
         //myAudio = GetComponent<AudioSource>();
     }
@@ -116,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumping)
         {
             myBody.AddForce(Vector2.up * jumpLimit, ForceMode2D.Impulse);
+            gameObject.layer = jumpUpLayer;
             jumping = false;
         }
 
@@ -127,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         else if (myBody.velocity.y < 0)
         {
             myBody.gravityScale = gravityFall;
+            gameObject.layer = furnitureLayer;
 
         }
         /*
