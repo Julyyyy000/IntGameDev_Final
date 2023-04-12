@@ -17,9 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravityFall = 40f;
     public float jumpLimit = 2f;
 
-    bool jump1 = false;
-    bool jump2 = false;
-    bool canDoubleJump = false;
+    bool jumping = false;
 
     public GameObject textBox;
 
@@ -60,15 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            jump1 = true;
-            //myAnim.SetBool("jumping", true);
-            //myAudio.clip = jumpAudio;
-            //myAudio.Play();
-        }
-        else if (Input.GetButtonDown("Jump") && canDoubleJump)
-        {
-            jump2 = true;
-            canDoubleJump = false;
+            jumping = true;
             //myAnim.SetBool("jumping", true);
             //myAudio.clip = jumpAudio;
             //myAudio.Play();
@@ -123,16 +113,10 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveSpeed = horizontalMove * speed;
 
-        if (jump1)
+        if (jumping)
         {
             myBody.AddForce(Vector2.up * jumpLimit, ForceMode2D.Impulse);
-            jump1 = false;
-            canDoubleJump = true;
-        }
-        if (jump2)
-        {
-            myBody.AddForce(Vector2.up * jumpLimit, ForceMode2D.Impulse);
-            jump2 = false;
+            jumping = false;
         }
 
         if (myBody.velocity.y > 0)
@@ -153,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
         */
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist);
+        //Debug.Log(hit.transform);
         Debug.DrawRay(transform.position, Vector2.down, Color.red);
 
         if (hit.collider != null && hit.transform.CompareTag("ground"))
@@ -166,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         myBody.velocity = new Vector3(moveSpeed, myBody.velocity.y, 0);
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)

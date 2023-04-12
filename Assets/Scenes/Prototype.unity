@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9.31
-  castDist: 0.2
+  castDist: 1
   gravityScale: 5
   gravityFall: 4
   jumpLimit: 10
