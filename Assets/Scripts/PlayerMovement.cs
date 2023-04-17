@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     int jumpUpLayer;
     int furnitureLayer;
 
+    Animator myAnim;
+
     /*
     public bool canShoot = false;
 
@@ -33,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject collectParticlePrefab;
 
 
-    Animator myAnim;
+    
 
     public GameObject gameManager;
 
@@ -51,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         jumpUpLayer = LayerMask.NameToLayer("JumpUp");
         furnitureLayer = LayerMask.NameToLayer("FurnitureLayer");
-        //myAnim = GetComponent<Animator>();
+        myAnim = GetComponent<Animator>();
         //myAudio = GetComponent<AudioSource>();
     }
 
@@ -68,27 +71,32 @@ public class PlayerMovement : MonoBehaviour
             //myAudio.clip = jumpAudio;
             //myAudio.Play();
         }
-        /*
+
 
         if (horizontalMove > 0.2f || horizontalMove < -0.2f)
         {
 
             myAnim.SetBool("walking", true);
+            /*
             if (!myAudio.isPlaying && !myAnim.GetBool("jumping"))
             {
                 myAudio.clip = walkAudio;
                 myAudio.Play();
             }
+            */
 
         }
         else
         {
             myAnim.SetBool("walking", false);
+            /*
             if (myAudio.clip == walkAudio)
             {
                 myAudio.Stop();
             }
+            */
         }
+        /*
 
         if (canShoot)
         {
@@ -166,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("hit trigger");
         if (collision.gameObject.CompareTag("interactive"))
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.C))
             {
                 textBox.SetActive(true);
             }
@@ -176,6 +184,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         textBox.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //just for now TODO:change to game manager
+        if (collision.transform.CompareTag("door"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     /*
