@@ -1048,7 +1048,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 184, y: 125}
-    spritePosition: {x: 56, y: 109}
+    spritePosition: {x: 53, y: 97}
   - name: hair
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3852,7 +3852,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -151, y: 571}
-    spritePosition: {x: 155, y: 157}
+    spritePosition: {x: 0, y: 157}
   - name: foot_l
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4594,7 +4594,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 378, y: 4}
-    spritePosition: {x: 119, y: 92}
+    spritePosition: {x: 118, y: 92}
   - name: foot_r
     originalName: 
     pivot: {x: 0.5, y: 0.5}
