@@ -45,3 +45,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1883435703
+    locked: 0
+  - name: midGround
+    uniqueID: 3414013555
+    locked: 0
+  - name: npc
+    uniqueID: 2898173507
+    locked: 0
+  - name: player
+    uniqueID: 3789308731
+    locked: 0
+  - name: foreGround
+    uniqueID: 1161087349
+    locked: 0
+  - name: Blockage
+    uniqueID: 1925856279
+    locked: 0

@@ -1,5 +1,14 @@
 ﻿title: Start
 ---
+Mae: *Yawns*
+Mae: How long have I slept, I should be on my way to help out Bea with her move-in
+Mae: Ever since the bizarre witch trial, this town has been almost deserted
+Mae: But the rent is at an all-time low so I’m not complaining
+
+===
+
+title: test
+---
 Mae: Hi Greg...
 Mae: I think I got a phone call from Bae...
 Greg: What happened?
@@ -9,4 +18,20 @@ Greg: What happened?
 -> I got to go find out.
 
 Mae: See you Greg.
+===
+
+title: Gregg
+---
+Gregg: Hey Mae, how's the Sunday sleep-in?
+Mae: Terrific, haven’t had that much sleep in a while
+Mae: Have you heard from Bea yet?
+Gregg: No, she’s late, I’m getting a bit worried
+Gregg: Haven’t heard anything about a train postponement either
+Mae: I’m sure she’s fine,
+Mae: Ever since her trip back, she sounds so much happier.
+Mae: Now that her family business went online and started striving,
+Mae: she can afford whatever she wants
+Mae: I’m glad for her
+Gregg: That sounds a bit salty, was it meant to be?
+Mae: …No?
 ===

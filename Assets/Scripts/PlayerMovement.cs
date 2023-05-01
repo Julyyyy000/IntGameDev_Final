@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     int furnitureLayer;
 
     Animator myAnim;
-
     /*
     public GameObject particlePrefab;
     public GameObject collectParticlePrefab;
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.C))
             {
-                textBox.SetActive(true);
+                textBox.GetComponent<DialogueRunner>().StartDialogue("Gregg");
                 collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
             }
         }
@@ -172,10 +172,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        textBox.SetActive(false);
+        //textBox.SetActive(false);
         if (collision.gameObject.CompareTag("interactive"))
         {
-           collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
+           //collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
         }
     }
 
