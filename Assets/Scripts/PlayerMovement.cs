@@ -175,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
         //textBox.SetActive(false);
         if (collision.gameObject.CompareTag("interactive"))
         {
-           //collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
+           collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
         }
     }
 
