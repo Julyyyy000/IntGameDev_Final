@@ -28,26 +28,19 @@ public class PlayerMovement : MonoBehaviour
     Animator myAnim;
 
     /*
-    public bool canShoot = false;
-
-    public GameObject leftBullet;
-    public GameObject rightBullet;
     public GameObject particlePrefab;
     public GameObject collectParticlePrefab;
 
-
-    
-
     public GameObject gameManager;
-
+    */
     AudioSource myAudio;
     public AudioClip walkAudio;
     public AudioClip jumpAudio;
-    public AudioClip collectAudio;
-    public AudioClip shootAudio;
+    //public AudioClip collectAudio;
+    //public AudioClip shootAudio;
 
-    public GameObject text;
-    */
+    //public GameObject text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         jumpUpLayer = LayerMask.NameToLayer("JumpUp");
         furnitureLayer = LayerMask.NameToLayer("FurnitureLayer");
         myAnim = GetComponent<Animator>();
-        //myAudio = GetComponent<AudioSource>();
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -64,12 +57,13 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal");
         //Debug.Log(horizontalMove);
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded)
         {
             jumping = true;
-            //myAnim.SetBool("jumping", true);
-            //myAudio.clip = jumpAudio;
-            //myAudio.Play();
+            myAnim.SetBool("jumping", true);
+            myAudio.clip = jumpAudio;
+            myAudio.volume = 0.5f;
+            myAudio.Play();
         }
 
 
@@ -77,49 +71,35 @@ public class PlayerMovement : MonoBehaviour
         {
 
             myAnim.SetBool("walking", true);
-            /*
+            
             if (!myAudio.isPlaying && !myAnim.GetBool("jumping"))
             {
                 myAudio.clip = walkAudio;
+                myAudio.volume = 1;
                 myAudio.Play();
             }
-            */
+            
+
+            if (horizontalMove > 0.2f)
+            {
+                transform.localScale = new Vector3(0.8f, 0.8f, 0);
+            } else
+            {
+                transform.localScale = new Vector3(-0.8f, 0.8f, 0);
+            }
 
         }
         else
         {
             myAnim.SetBool("walking", false);
-            /*
+            
             if (myAudio.clip == walkAudio)
             {
                 myAudio.Stop();
             }
-            */
+            
         }
-        /*
 
-        if (canShoot)
-        {
-            //Debug.Log(bullet.activeSelf);
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                myAudio.clip = shootAudio;
-                myAudio.Play();
-                canShoot = false;
-                text.SetActive(false);
-                Instantiate(leftBullet, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-            }
-
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                myAudio.clip = shootAudio;
-                myAudio.Play();
-                canShoot = false;
-                text.SetActive(false);
-                Instantiate(rightBullet, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-            }
-        }
-        */
     }
 
     void FixedUpdate()
@@ -144,18 +124,12 @@ public class PlayerMovement : MonoBehaviour
             gameObject.layer = furnitureLayer;
 
         }
-        /*
-        if (grounded)
-        {
-            myAnim.SetBool("jumping", false);
-        }
-        */
-
+    
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist);
         //Debug.Log(hit.transform);
         Debug.DrawRay(transform.position, Vector2.down, Color.red);
 
-        if (hit.collider != null && hit.transform.CompareTag("ground"))
+        if (hit.collider != null && (hit.transform.CompareTag("ground") || hit.transform.CompareTag("furniture")))
         {
             grounded = true;
 
@@ -165,18 +139,33 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
 
+        if (grounded)
+        {
+            myAnim.SetBool("jumping", false);
+            if (hit.transform.CompareTag("furniture"))
+            {
+                myAnim.SetBool("onObject", true);
+            } else
+            {
+                myAnim.SetBool("onObject", false);
+            }
+        }
+
+        Debug.Log(grounded);
+        //Debug.Log(hit.transform.name);
         myBody.velocity = new Vector3(moveSpeed, myBody.velocity.y, 0);
         
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("hit trigger");
+        //Debug.Log("hit trigger");
         if (collision.gameObject.CompareTag("interactive"))
         {
             if (Input.GetKey(KeyCode.C))
             {
                 textBox.SetActive(true);
+                collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
             }
         }
     }
@@ -184,6 +173,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         textBox.SetActive(false);
+        if (collision.gameObject.CompareTag("interactive"))
+        {
+           collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -198,17 +191,6 @@ public class PlayerMovement : MonoBehaviour
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("bullet"))
-        {
-            if (!canShoot)
-            {
-                canShoot = true;
-                Instantiate(collectParticlePrefab, new Vector3(transform.position.x, transform.position.y + 3, 0), Quaternion.identity);
-                myAudio.clip = collectAudio;
-                myAudio.Play();
-                text.SetActive(true);
-            }
-        }
 
         if (collision.gameObject.name == "NextLevel")
         {
