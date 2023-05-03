@@ -8,7 +8,8 @@ using Yarn.Unity;
 public class PlayerMovement : MonoBehaviour
 {
     float horizontalMove;
-    public float speed;
+    public float setSpeed;
+    private float speed;
 
     Rigidbody2D myBody;
 
@@ -27,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     int furnitureLayer;
 
     Animator myAnim;
+
+    public GameObject questionBubble;
     /*
     public GameObject particlePrefab;
     public GameObject collectParticlePrefab;
@@ -54,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (textBox.GetComponent<DialogueRunner>().IsDialogueRunning)
+        {
+            speed = 0;
+        } else
+        {
+            speed = setSpeed;
+        }
+
+        questionBubble.transform.position = new Vector3(transform.position.x, transform.position.y + 4.5f, 0);
         horizontalMove = Input.GetAxis("Horizontal");
         //Debug.Log(horizontalMove);
 
@@ -160,13 +172,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //Debug.Log("hit trigger");
+        Debug.Log("hit trigger");
         if (collision.gameObject.CompareTag("interactive"))
         {
             if (Input.GetKey(KeyCode.C))
             {
-                textBox.GetComponent<DialogueRunner>().StartDialogue("Gregg");
-                collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
+                textBox.GetComponent<DialogueRunner>().StartDialogue(collision.gameObject.name);
+                //collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
             }
         }
     }
@@ -176,12 +188,19 @@ public class PlayerMovement : MonoBehaviour
         //textBox.SetActive(false);
         if (collision.gameObject.CompareTag("interactive"))
         {
-           collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
+           //collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
         }
+        questionBubble.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("interactive"))
+        {
+            questionBubble.SetActive(true);
+        }
+
+        
         //just for now TODO:change to game manager
         if (collision.transform.CompareTag("door"))
         {
