@@ -116,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
         if (myBody.velocity.y > 0)
         {
             myBody.gravityScale = gravityScale;
+            myAnim.SetBool("jumping", false);
 
         }
         else if (myBody.velocity.y < 0)
@@ -141,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
-            myAnim.SetBool("jumping", false);
+            myAnim.SetBool("landing", true);
             if (hit.transform.CompareTag("furniture"))
             {
                 myAnim.SetBool("onObject", true);
