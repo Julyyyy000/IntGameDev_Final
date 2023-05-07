@@ -42,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip walkAudio;
     public AudioClip jumpAudio;
 
-    public GameObject LineView;
+    public LineView LineView;
+    public DialogueRunner dialogueRunner;
     //public AudioClip collectAudio;
     //public AudioClip shootAudio;
 
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             jumpLimit = 0;
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                LineView.GetComponent<LineView>().UserRequestedViewAdvancement();
+                LineView.UserRequestedViewAdvancement();
             }
         } else
         {
@@ -79,22 +80,17 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal");
         //Debug.Log(horizontalMove);
 
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded && !dialogueRunner.IsDialogueRunning)
         {
-            
-            if (!textBox.GetComponent<DialogueRunner>().IsDialogueRunning)
-            {
-                myAnim.SetBool("jumping", true);
-                jumping = true;
-            }
-            
+            myAnim.SetBool("jumping", true);
+            jumping = true;
             myAudio.clip = jumpAudio;
             myAudio.volume = 0.5f;
             myAudio.Play();
         }
 
 
-        if (horizontalMove > 0.1f || horizontalMove < -0.1f)
+        if (horizontalMove > 0.2f || horizontalMove < -0.2f)
         {
 
             myAnim.SetBool("walking", true);
@@ -179,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Debug.Log(grounded);
+        //Debug.Log(grounded);
         //Debug.Log(hit.transform.name);
         myBody.velocity = new Vector3(moveSpeed, myBody.velocity.y, 0);
         
@@ -187,12 +183,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("hit trigger");
+        //Debug.Log("hit trigger");
         if (collision.gameObject.CompareTag("interactive"))
         {
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKey(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
             {
-                textBox.GetComponent<DialogueRunner>().StartDialogue(collision.gameObject.name);
+                dialogueRunner.StartDialogue(collision.gameObject.name);
                 //collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
             }
         }

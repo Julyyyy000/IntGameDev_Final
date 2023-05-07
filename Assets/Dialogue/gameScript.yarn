@@ -1,4 +1,5 @@
-﻿title: Start
+﻿
+title: Start
 ---
 Mae: *Yawns*
 Mae: How long have I slept, I should be on my way to help out Bea with her move-in
@@ -33,6 +34,8 @@ Mae: she can afford whatever she wants
 Mae: I’m glad for her
 Gregg: That sounds a bit salty, was it meant to be?
 Mae: …No?
+<<play_sound Telephone>>
+<<set_to_interactive Telephone>>
 ===
 
 title: Cauldron
@@ -64,14 +67,11 @@ title: Telephone
 Mae: H…
 BEA: HELP!!!!
 *Phone Slams*
-===
 
-title: Gregg2
----
 Gregg: Is that…?
 Mae: THAT SOUNDED LIKE BEA
 Mae: I’ll go to the police station, you go search around
-Mae: WHERE IS MY CELLPHONE!?
+<<set $canLeave to true>>
 ===
 
 title: Sofa
@@ -82,8 +82,29 @@ Mae: But we tore off the price tag…
 
 title: Door
 ---
-Mae: I should talk to Gregg before I leave
-Mae: He’s gonna help Bea move back in as well
+<<if $canLeave == false>>
+    Mae: I should talk to Gregg before I leave
+    Mae: He’s gonna help Bea move back in as well
+<<else>>
+    <<change_scene Street>>
+<<endif>>
 ===
+
+title: Mom
+---
+Mom: How’s your sleep honey?
+Mom: I know it’s a Saturday but you missed the breakfast
+Mom: Gregg and I talked a lot about how you are doing recently
+Mae: Mom…
+Mom: I know it’s not the same after what happened to the town
+Mom: But I really hope you can get back on your feet
+Mom: Like Bea!
+Mom: She’s doing fine, isn’t she?
+Mae: Yes Mom but we are not the same
+Mae: I’m happy for her but please stop comparing us
+Mom: You guys grow up so quickly
+Mom: You don’t need my validation anymore…
+===
+
 
 
