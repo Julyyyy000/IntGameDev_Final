@@ -18,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public float castDist = 0.2f;
     public float gravityScale = 5f;
     public float gravityFall = 40f;
-    public float jumpLimit = 2f;
+    public float setJumpLimit = 5.7f;
+    private float jumpLimit;
+
 
     bool jumping = false;
 
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     AudioSource myAudio;
     public AudioClip walkAudio;
     public AudioClip jumpAudio;
+
+    public GameObject LineView;
     //public AudioClip collectAudio;
     //public AudioClip shootAudio;
 
@@ -60,9 +64,15 @@ public class PlayerMovement : MonoBehaviour
         if (textBox.GetComponent<DialogueRunner>().IsDialogueRunning)
         {
             speed = 0;
+            jumpLimit = 0;
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                LineView.GetComponent<LineView>().UserRequestedViewAdvancement();
+            }
         } else
         {
             speed = setSpeed;
+            jumpLimit = setJumpLimit;
         }
 
         questionBubble.transform.position = new Vector3(transform.position.x, transform.position.y + 4.5f, 0);
@@ -71,15 +81,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && grounded)
         {
-            jumping = true;
-            myAnim.SetBool("jumping", true);
+            
+            if (!textBox.GetComponent<DialogueRunner>().IsDialogueRunning)
+            {
+                myAnim.SetBool("jumping", true);
+                jumping = true;
+            }
+            
             myAudio.clip = jumpAudio;
             myAudio.volume = 0.5f;
             myAudio.Play();
         }
 
 
-        if (horizontalMove > 0.2f || horizontalMove < -0.2f)
+        if (horizontalMove > 0.1f || horizontalMove < -0.1f)
         {
 
             myAnim.SetBool("walking", true);
@@ -189,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("interactive"))
         {
            //collision.gameObject.GetComponent<Animator>().SetBool("talk", false);
+
         }
         questionBubble.SetActive(false);
     }
