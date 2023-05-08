@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             jumpLimit = setJumpLimit;
         }
 
-        questionBubble.transform.position = new Vector3(transform.position.x, transform.position.y + 4.5f, 0);
+        
         horizontalMove = Input.GetAxis("Horizontal");
         //Debug.Log(horizontalMove);
 
@@ -197,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("interactive"))
         {
             questionBubble.SetActive(true);
+            questionBubble.transform.position = new Vector3(transform.position.x, transform.position.y + 4.5f, 0);
             Debug.Log(dialogueRunner.IsDialogueRunning);
             if (Input.GetKeyDown(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
             {

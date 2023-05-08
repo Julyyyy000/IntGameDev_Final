@@ -35,10 +35,6 @@ public class GameManager : MonoBehaviour
             ChangeXPos // the method to run
         );
 
-        dialogueRunner.AddCommandHandler<GameObject>(
-            "end_game",     // the name of the command
-            EndGame // the method to run
-        );
     }
 
     public void PlaySound(GameObject target)
@@ -60,11 +56,6 @@ public class GameManager : MonoBehaviour
     public void ChangeXPos(GameObject target, float xPos)
     {
         target.transform.position = new Vector3(xPos, target.transform.position.y, 0);
-    }
-
-    public void EndGame(GameObject target)
-    {
-        target.SetActive(true);
     }
 
     // Update is called once per frame

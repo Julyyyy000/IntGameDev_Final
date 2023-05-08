@@ -52,7 +52,7 @@ title: Gregg
     Bea: What… do you mean?
     Mae: It means he’s changed, Bea… 
     Mae: Let’s get out of here.
-    <<change_x_position end_screen 0>>
+    <<change_scene endScreen>>
 <<endif>>
 ===
 
@@ -152,16 +152,16 @@ Mae: I’m still in an emergency
 title: Mrs.Ratchet
 ---
 Mae: Have you heard from Bea?
-Deer: Bea? The lovely young lady? I missed her so!
-Deer: She hasn’t been to my cooking class in a while
-Deer: I heard she’s been working out a lot
-Deer: Angus the handsome Hamster boy has also stopped coming here
-Deer: I wonder what he’s up to
-Deer: He used to be so excited about the acorn wraps
-Deer: *Sniffs*
-Deer: I miss the days when you all are so young
+Mrs. Ratchet: Bea? The lovely young lady? I missed her so!
+Mrs. Ratchet: She hasn’t been to my cooking class in a while
+Mrs. Ratchet: I heard she’s been working out a lot
+Mrs. Ratchet: Angus the handsome Hamster boy has also stopped coming here
+Mrs. Ratchet: I wonder what he’s up to
+Mrs. Ratchet: He used to be so excited about the acorn wraps
+Mrs. Ratchet: *Sniffs*
+Mrs. Ratchet: I miss the days when you all are so young
 Mae: Sorry, I really got to go now, I will catch up with you later
-Deer: Be careful Mae!
+Mrs. Ratchet: Be careful Mae!
 ===
 
 title: Police
@@ -263,4 +263,9 @@ Mae: I hope he’s found soon.
 title: StreetDoor
 ---
 <<change_scene returnHouse>>
+===
+
+title: returnDoor
+---
+<<change_scene Street>>
 ===
