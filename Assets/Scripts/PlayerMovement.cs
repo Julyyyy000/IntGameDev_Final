@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravityFall = 40f;
     public float setJumpLimit = 5.7f;
     private float jumpLimit;
-
+    private float xScale;
 
     bool jumping = false;
 
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         furnitureLayer = LayerMask.NameToLayer("FurnitureLayer");
         myAnim = GetComponent<Animator>();
         myAudio = GetComponent<AudioSource>();
+        xScale = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -105,10 +106,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (horizontalMove > 0.2f)
             {
-                transform.localScale = new Vector3(0.8f, 0.8f, 0);
+                transform.localScale = new Vector3(xScale, xScale, 0);
             } else
             {
-                transform.localScale = new Vector3(-0.8f, 0.8f, 0);
+                transform.localScale = new Vector3(-xScale, xScale, 0);
             }
 
         }

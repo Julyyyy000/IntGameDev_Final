@@ -5,6 +5,7 @@ Mae: *Yawns*
 Mae: How long have I slept, I should be on my way to help out Bea with her move-in
 Mae: Ever since the bizarre witch trial, this town has been almost deserted
 Mae: But the rent is at an all-time low so I’m not complaining
+<<set $scene to 0>>
 ===
 
 title: test
@@ -87,7 +88,6 @@ title: Door
     Mae: He’s gonna help Bea move back in as well
 <<else>>
     <<change_scene Street>>
-    <<set $scene to 1>>
 <<endif>>
 ===
 
@@ -179,7 +179,7 @@ Gregg: Gotcha. I haven’t heard from Bea since, I can’t reach her phone eithe
 
 title: Angus
 ---
-<<if $scene == 1>>
+<<if $scene == 0>>
     Mae finds Cannibal Hamster Angus snooping around suspiciously
     Mae: Hey Angus, have you seen Bea?
     Angus: No? What made you ask, has she gone missing?
@@ -190,8 +190,69 @@ title: Angus
     Mae: Wait Angus is the street spinning?
     Angus: Yeah, I think so.
     <<change_scene Church>>
-    <<set $scene to 2>>
-<<elseif $scene == 2>>
+<<elseif $scene == 1>>
+    Angus: Hey Mae.
+    Mae: Angus, what are you doing to us, this is not going to end well.
+    Angus: Who is going to miss you? Your overprotective mother that you pushed away? The joke of a police department here? You fox friend that left his life behind to live with you all so he can hide from reality?
+    Mae: Wha…
+    Angus: Exactly. You should as well be of value to someone,
+    Angus: I will prepare the water.
+    <<change_x_position Angus 24>>
+    Bea: What do you mean by the water!? Mae, what does he mean by the water???
+    Mae: I DON’T KNOW BEA, aren’t you the better one?? Think of something, don’t you have someone that cares? Aren’t you more valuable to everyone?
+    Bea: YOU ARE THE SOMEONE THAT CARES! I value you! Please…
+    Mae: Bea…
+
+    Outside of basement door
+    *Muffled Police Sirens Wail*
+    Gregg: BEA? MAE?
+    Mae & Bea: YES, WE ARE IN HERE!! HELPPPPPPPP
+    Gregg: LET ME BREAK THE LOCK
+    *Pop*
+    <<change_x_position Gregg 11>>
+
+    Inside basement door
+    Bea: GREGGGGGGG
+    Gregg: How are you holding on Bea? The cops made an arrest outside
+    Mae: HOW DID YOU FIND US, we were gonna lose it in here!!
+    Gregg: Not being able to reach you all with my phone made me realize that there are only possibly two locations without signals, either deep in the woods or the church basement
+    Gregg: Remember back in the day the four of us used to sneak in here to find Father Lance? We’d sneak in so no one could ever find us, this was our secret spot for everything until Lance passed, may he rest in peace.
+    Gregg: I doubt Angus could’ve grabbed you so far into the woods this fast so I took a chance.
+    Mae: I’M GLAD YOU DID, how did you suspect it was Angus, you guys aren’t in on it together… right Gregg?
+    Gregg: Of course not. Mrs. Ratchet and her comment on Angus no longer coming to the cooking gathering made me suspicious, he used to love it so much
+    Gregg: I snooped around and heard from his friends that he has developed a distinctive… taste
+    Gregg: That he stopped eating seeds or fruits altogether…
+    Bea: What… do you mean?
+    Mae: It means he’s changed, Bea… 
+    Mae: Let’s get out of here.
 <<endif>>
+===
+
+title: WakeUp
+---
+Mae wakes up
+Mae: BEA? BEA?
+Bea: MAE!!!! I am petrified, are you okay?
+Mae: How did I get here?
+Bea: I saw Angus carry you in
+Mae: Angus? Why!?
+Bea: I don’t get it either, he barely said anything when he grabbed me here
+Bea: I’m trying to reach you by calling but the signals aren’t going through
+Bea: I had to jump as hard as I could to reach less than a bar’s worth of signal…
+Bea: Did you call the police?
+Mae: I did but they didn’t seem to care, there has been so many missing people's case they just didn’t seem to give a crap anymore
+<<change_x_position Angus 11>>
+<<set $scene to 1>>
+===
+
+title: Garbage
+---
+Mae: Yeesh… smelly
+===
+
+title: Missing
+---
+Mae: I went to high school with Jack…
+Mae: I hope he’s found soon.
 ===
 

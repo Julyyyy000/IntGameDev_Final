@@ -10,5 +10,11 @@ EditorBuildSettings:
     guid: 906cda49fb59465408e804243c47e5cc
   - enabled: 1
     path: Assets/Scenes/House.unity
-    guid: b1eafefc49d7348978132275b62c80ee
+    guid: 365868000cd68a94d9b6845c3c0386e4
+  - enabled: 1
+    path: Assets/Scenes/Street.unity
+    guid: 3a8b0da820fc445a1b8842750a38d383
+  - enabled: 1
+    path: Assets/Scenes/Church.unity
+    guid: 0bce351e6ee7246b781a14588d6acef6
   m_configObjects: {}

@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
             "change_scene",     // the name of the command
             ChangeScene // the method to run
         );
+
+        dialogueRunner.AddCommandHandler<GameObject, float>(
+            "change_x_position",     // the name of the command
+            ChangeXPos // the method to run
+        );
     }
 
     public void PlaySound(GameObject target)
@@ -45,6 +50,11 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string target)
     {
         SceneManager.LoadScene(target);
+    }
+
+    public void ChangeXPos(GameObject target, float xPos)
+    {
+        target.transform.position = new Vector3(xPos, target.transform.position.y, 0);
     }
 
     // Update is called once per frame
