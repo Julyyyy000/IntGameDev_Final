@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 7545569452688597077, guid: 77e2a83f4a047438dbec5a6aaba03259, type: 3}
     - target: {fileID: 3579681405068720530, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: startAutomatically
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3579681405068720530, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: onCommand.m_PersistentCalls.m_Calls.Array.size
@@ -13455,7 +13455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360127325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.579284, y: -3.5581214, z: 0.22957516}
+  m_LocalPosition: {x: -4.5792837, y: -3.5581214, z: 0.22957516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15206,9 +15206,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setSpeed: 7
   castDist: 1.68
-  gravityScale: 5.69
-  gravityFall: 9.53
-  setJumpLimit: 5.7
+  gravityScale: 2.95
+  gravityFall: 5.2
+  setJumpLimit: 15.75
+  objectWalkSpeed: 3.14
   textBox: {fileID: 654295192}
   questionBubble: {fileID: 1991910774}
   walkAudio: {fileID: 8300000, guid: 53ca9d0b437f342b1aff99395def8b67, type: 3}
@@ -23851,6 +23852,7 @@ MonoBehaviour:
   gravityScale: 3
   gravityFall: 4
   setJumpLimit: 5.7
+  objectWalkSpeed: 0
   textBox: {fileID: 654295192}
   questionBubble: {fileID: 0}
   walkAudio: {fileID: 0}
@@ -25386,7 +25388,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0059051514, y: 0.75355065}
+  m_Offset: {x: 0.0054159164, y: 0.75355065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -25397,7 +25399,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2835693, y: 0.12003684}
+  m_Size: {x: 2.4959335, y: 0.12003684}
   m_EdgeRadius: 0
 --- !u!1 &1723924737
 GameObject:
@@ -31325,7 +31327,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17351949}
+  m_Offset: {x: -0.05623603, y: -0.17351949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -31336,7 +31338,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.7999997, y: 0.13161206}
+  m_Size: {x: 6.291842, y: 0.13161206}
   m_EdgeRadius: 0
 --- !u!1 &1878485732
 GameObject:

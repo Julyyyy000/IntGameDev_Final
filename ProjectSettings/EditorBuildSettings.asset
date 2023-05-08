@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Church.unity
     guid: 0bce351e6ee7246b781a14588d6acef6
+  - enabled: 1
+    path: Assets/Scenes/returnHouse.unity
+    guid: ecbdbb006a6414e48af7d53618837cc0
   m_configObjects: {}

@@ -23,20 +23,37 @@ Mae: See you Greg.
 
 title: Gregg
 ---
-Gregg: Hey Mae, how's the Sunday sleep-in?
-Mae: Terrific, haven’t had that much sleep in a while
-Mae: Have you heard from Bea yet?
-Gregg: No, she’s late, I’m getting a bit worried
-Gregg: Haven’t heard anything about a train postponement either
-Mae: I’m sure she’s fine,
-Mae: Ever since her trip back, she sounds so much happier.
-Mae: Now that her family business went online and started striving,
-Mae: she can afford whatever she wants
-Mae: I’m glad for her
-Gregg: That sounds a bit salty, was it meant to be?
-Mae: …No?
-<<play_sound Telephone>>
-<<set_to_interactive Telephone>>
+<<if $scene == 0>>
+    Gregg: Hey Mae, how's the Sunday sleep-in?
+    Mae: Terrific, haven’t had that much sleep in a while
+    Mae: Have you heard from Bea yet?
+    Gregg: No, she’s late, I’m getting a bit worried
+    Gregg: Haven’t heard anything about a train postponement either
+    Mae: I’m sure she’s fine,
+    Mae: Ever since her trip back, she sounds so much happier.
+    Mae: Now that her family business went online and started thriving,
+    Mae: she can afford whatever she wants
+    Mae: I’m glad for her
+    Gregg: That sounds a bit salty, was it meant to be?
+    Mae: …No?
+    <<play_sound Telephone>>
+    <<set_to_interactive Telephone>>
+<<elseif $scene == 1>>
+    Bea: GREGGGGGGG
+    Gregg: How are you holding on Bea? The cops made an arrest outside
+    Mae: HOW DID YOU FIND US, we were gonna lose it in h ere!!
+    Gregg: Not being able to reach you all with my phone made me realize that there are only possibly two locations without signals, either deep in the woods or the church basement
+    Gregg: Remember back in the day the four of us used to sneak in here to find Father Lance? We’d sneak in so no one could ever find us, this was our secret spot for everything until Lance passed, may he rest in peace.
+    Gregg: I doubt Angus could’ve grabbed you so far into the woods this fast so I took a chance.
+    Mae: I’M GLAD YOU DID, how did you suspect it was Angus, you guys aren’t in on it together… right Gregg?
+    Gregg: Of course not. Mrs. Ratchet and her comment on Angus no longer coming to the cooking gathering made me suspicious, he used to love it so much
+    Gregg: I snooped around and heard from his friends that he has developed a distinctive… taste
+    Gregg: That he stopped eating seeds or fruits altogether…
+    Bea: What… do you mean?
+    Mae: It means he’s changed, Bea… 
+    Mae: Let’s get out of here.
+    <<change_x_position end_screen 0>>
+<<endif>>
 ===
 
 title: Cauldron
@@ -121,18 +138,18 @@ Mae: Dinner?
 Mae: I hope it’s trashy and tasty
 ===
 
-title: Cat
+title: Katt
 ---
 Mae: Have you seen or heard from Bea?
-Cat: Bea? She’s back from her vacation?
-Cat: I haven’t really heard from her,
-Cat: She missed our boardgame session this week
-Cat: You know how it is, we have to find a substitute every time some…
+Katt: Bea? She’s back from her vacation?
+Katt: I haven’t really heard from her,
+Katt: She missed our boardgame session this week
+Katt: You know how it is, we have to find a substitute every time some…
 Mae: Ah ta ta ta, 
 Mae: I’m still in an emergency
 ===
 
-title: Deer
+title: Mrs.Ratchet
 ---
 Mae: Have you heard from Bea?
 Deer: Bea? The lovely young lady? I missed her so!
@@ -180,7 +197,6 @@ Gregg: Gotcha. I haven’t heard from Bea since, I can’t reach her phone eithe
 title: Angus
 ---
 <<if $scene == 0>>
-    Mae finds Cannibal Hamster Angus snooping around suspiciously
     Mae: Hey Angus, have you seen Bea?
     Angus: No? What made you ask, has she gone missing?
     Mae: Yeah, I’m really worried about her
@@ -197,34 +213,22 @@ title: Angus
     Mae: Wha…
     Angus: Exactly. You should as well be of value to someone,
     Angus: I will prepare the water.
-    <<change_x_position Angus 24>>
+    <<change_x_position Angus 27>>
     Bea: What do you mean by the water!? Mae, what does he mean by the water???
     Mae: I DON’T KNOW BEA, aren’t you the better one?? Think of something, don’t you have someone that cares? Aren’t you more valuable to everyone?
     Bea: YOU ARE THE SOMEONE THAT CARES! I value you! Please…
     Mae: Bea…
-
-    Outside of basement door
+    ...
+    ...
+    ...
+    <<play_sound siren>>
     *Muffled Police Sirens Wail*
     Gregg: BEA? MAE?
     Mae & Bea: YES, WE ARE IN HERE!! HELPPPPPPPP
     Gregg: LET ME BREAK THE LOCK
-    *Pop*
+    <<play_sound bangingDoor>>
+    *Pop* 
     <<change_x_position Gregg 11>>
-
-    Inside basement door
-    Bea: GREGGGGGGG
-    Gregg: How are you holding on Bea? The cops made an arrest outside
-    Mae: HOW DID YOU FIND US, we were gonna lose it in here!!
-    Gregg: Not being able to reach you all with my phone made me realize that there are only possibly two locations without signals, either deep in the woods or the church basement
-    Gregg: Remember back in the day the four of us used to sneak in here to find Father Lance? We’d sneak in so no one could ever find us, this was our secret spot for everything until Lance passed, may he rest in peace.
-    Gregg: I doubt Angus could’ve grabbed you so far into the woods this fast so I took a chance.
-    Mae: I’M GLAD YOU DID, how did you suspect it was Angus, you guys aren’t in on it together… right Gregg?
-    Gregg: Of course not. Mrs. Ratchet and her comment on Angus no longer coming to the cooking gathering made me suspicious, he used to love it so much
-    Gregg: I snooped around and heard from his friends that he has developed a distinctive… taste
-    Gregg: That he stopped eating seeds or fruits altogether…
-    Bea: What… do you mean?
-    Mae: It means he’s changed, Bea… 
-    Mae: Let’s get out of here.
 <<endif>>
 ===
 
@@ -256,3 +260,7 @@ Mae: I went to high school with Jack…
 Mae: I hope he’s found soon.
 ===
 
+title: StreetDoor
+---
+<<change_scene returnHouse>>
+===

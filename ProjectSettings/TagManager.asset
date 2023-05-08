@@ -8,6 +8,7 @@ TagManager:
   - interactive
   - door
   - furniture
+  - leave
   layers:
   - Default
   - TransparentFX

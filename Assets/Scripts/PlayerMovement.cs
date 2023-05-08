@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float setJumpLimit = 5.7f;
     private float jumpLimit;
     private float xScale;
+    public float objectWalkSpeed;
 
     bool jumping = false;
 
@@ -71,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 LineView.UserRequestedViewAdvancement();
             }
+        } else if (myAnim.GetBool("onObject"))
+        {
+            speed = objectWalkSpeed;
+            jumpLimit = setJumpLimit;
         } else
         {
             speed = setSpeed;
@@ -81,9 +86,11 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal");
         //Debug.Log(horizontalMove);
 
-        if (Input.GetKey(KeyCode.Space) && grounded && !dialogueRunner.IsDialogueRunning)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded && !dialogueRunner.IsDialogueRunning)
+
         {
             myAnim.SetBool("jumping", true);
+            myAnim.SetBool("landing", false);
             jumping = true;
             myAudio.clip = jumpAudio;
             myAudio.volume = 0.5f;
@@ -140,23 +147,26 @@ public class PlayerMovement : MonoBehaviour
         if (myBody.velocity.y > 0)
         {
             myBody.gravityScale = gravityScale;
-            myAnim.SetBool("jumping", false);
+            
 
         }
         else if (myBody.velocity.y < 0)
         {
             myBody.gravityScale = gravityFall;
             gameObject.layer = furnitureLayer;
+            myAnim.SetBool("jumping", false);
 
         }
     
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, castDist);
         //Debug.Log(hit.transform);
         Debug.DrawRay(transform.position, Vector2.down, Color.red);
+        Debug.Log(myBody.velocity.y);
 
-        if (hit.collider != null && (hit.transform.CompareTag("ground") || hit.transform.CompareTag("furniture")))
+        if (hit.collider != null && myBody.velocity.y <= 0.1f && (hit.transform.CompareTag("ground") || hit.transform.CompareTag("furniture")))
         {
             grounded = true;
+            myAnim.SetBool("landing", true);
 
         }
         else
@@ -166,7 +176,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded)
         {
-            myAnim.SetBool("landing", true);
             if (hit.transform.CompareTag("furniture"))
             {
                 myAnim.SetBool("onObject", true);
@@ -187,7 +196,9 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("hit trigger");
         if (collision.gameObject.CompareTag("interactive"))
         {
-            if (Input.GetKey(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
+            questionBubble.SetActive(true);
+            Debug.Log(dialogueRunner.IsDialogueRunning);
+            if (Input.GetKeyDown(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
             {
                 dialogueRunner.StartDialogue(collision.gameObject.name);
                 //collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
@@ -210,7 +221,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("interactive"))
         {
-            questionBubble.SetActive(true);
+            
+            //questionBubble.SetActive(true);
         }
 
         
