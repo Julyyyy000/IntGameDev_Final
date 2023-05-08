@@ -87,6 +87,7 @@ title: Door
     Mae: He’s gonna help Bea move back in as well
 <<else>>
     <<change_scene Street>>
+    <<set $scene to 1>>
 <<endif>>
 ===
 
@@ -119,3 +120,78 @@ Mae: I wonder what we are having for lunch,
 Mae: Dinner? 
 Mae: I hope it’s trashy and tasty
 ===
+
+title: Cat
+---
+Mae: Have you seen or heard from Bea?
+Cat: Bea? She’s back from her vacation?
+Cat: I haven’t really heard from her,
+Cat: She missed our boardgame session this week
+Cat: You know how it is, we have to find a substitute every time some…
+Mae: Ah ta ta ta, 
+Mae: I’m still in an emergency
+===
+
+title: Deer
+---
+Mae: Have you heard from Bea?
+Deer: Bea? The lovely young lady? I missed her so!
+Deer: She hasn’t been to my cooking class in a while
+Deer: I heard she’s been working out a lot
+Deer: Angus the handsome Hamster boy has also stopped coming here
+Deer: I wonder what he’s up to
+Deer: He used to be so excited about the acorn wraps
+Deer: *Sniffs*
+Deer: I miss the days when you all are so young
+Mae: Sorry, I really got to go now, I will catch up with you later
+Deer: Be careful Mae!
+===
+
+title: Police
+---
+Police calling someone on the phone
+Mae: Excuse me, officer
+Police: (On the phone) I’m glad that Officer Nix transferred, he was a pain in the ass
+Police: (On the phone) …
+Police: (On the phone) Yeah, tell me about it
+Police: (On the phone) Remember Sarah? Yeah, Sarah Diaz from HR
+Police: (On the phone) They are doing the Easter thing again,
+Police: (On the phone) Nothing’s the same after the incident happened
+Police: (On the phone) …
+Police: (On the phone) I know-wwwww
+Mae: OFFICER?
+Police: (On the phone) Sorry, there’s a tiny rascal here I gtg, 
+Police: (On the phone) will call you back in a minute
+*Slams*
+Police: Can I help you?
+Mae: Yes! My friend just cried for help and disappeared! I think she went missing,
+Mae: Please send someone to search for her!
+Police: Are they missing for more than 24 hours?
+Mae: NO! But I received a call crying for help a couple of minutes ago!
+Police: Sorry, can’t help you, go fill out a form or something,
+Police: We got a lot of missing people’s cases on our hand
+Police: If you want help, you gotta follow the procedure
+Mae: I don’t have time for this, I’ll leave it to Gregg.
+*ring ring*
+Mae: Hey Gregg, the police officer was not willing to help, I think I will keep snooping around
+Gregg: Gotcha. I haven’t heard from Bea since, I can’t reach her phone either, says it’s out of service.
+===
+
+title: Angus
+---
+<<if $scene == 1>>
+    Mae finds Cannibal Hamster Angus snooping around suspiciously
+    Mae: Hey Angus, have you seen Bea?
+    Angus: No? What made you ask, has she gone missing?
+    Mae: Yeah, I’m really worried about her
+    Angus: I thought she left for vacation
+    Mae: She’s supposed to be back today, but we cannot reach her
+    Mae: Hey, why did you think she had gone missing? That was a weird first instinct to…
+    Mae: Wait Angus is the street spinning?
+    Angus: Yeah, I think so.
+    <<change_scene Church>>
+    <<set $scene to 2>>
+<<elseif $scene == 2>>
+<<endif>>
+===
+

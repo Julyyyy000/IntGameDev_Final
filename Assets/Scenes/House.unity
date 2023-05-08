@@ -13282,7 +13282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341530369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5792837, y: -4.1581216, z: 0.22957516}
+  m_LocalPosition: {x: -4.5792837, y: -3.8581214, z: 0.22957516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13312,7 +13312,7 @@ MonoBehaviour:
   m_Follow: {fileID: 546653413}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3
+    OrthographicSize: 4.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -13455,7 +13455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360127325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5792837, y: -3.5581214, z: 0.22957516}
+  m_LocalPosition: {x: -4.579284, y: -3.5581214, z: 0.22957516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18365,6 +18365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894470760}
   - component: {fileID: 894470761}
+  - component: {fileID: 894470762}
   m_Layer: 0
   m_Name: CM StateDrivenCamera1
   m_TagString: Untagged
@@ -18447,6 +18448,25 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: 2057687223
     m_ParentHash: 756556552
+  - m_Hash: -1217905819
+    m_ParentHash: 756556552
+  - m_Hash: -2122346614
+    m_ParentHash: 756556552
+--- !u!114 &894470762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894470759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 1.15, z: 0}
+  m_ApplyAfter: 1
+  m_PreserveComposition: 0
 --- !u!1 &902111831
 GameObject:
   m_ObjectHideFlags: 0
@@ -20636,7 +20656,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -20660,7 +20680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147495664}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4505553, y: -1.0448697, z: 0.06137848}
+  m_LocalPosition: {x: -4.4505553, y: 0.4051305, z: 0.06137848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
