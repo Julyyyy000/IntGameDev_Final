@@ -15743,9 +15743,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setSpeed: 7
   castDist: 1.68
-  gravityScale: 2.7
-  gravityFall: 6.7
-  setJumpLimit: 21.23
+  gravityScale: 7
+  gravityFall: 9
+  setJumpLimit: 31.53
   objectWalkSpeed: 3.14
   textBox: {fileID: 413563103}
   questionBubble: {fileID: 891596868}
@@ -40387,7 +40387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114034293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.229645, y: -24.037735, z: 0.06137848}
+  m_LocalPosition: {x: 74.211174, y: -24.037937, z: 0.06137848}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

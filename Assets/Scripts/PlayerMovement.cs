@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpLimit;
     private float xScale;
     public float objectWalkSpeed;
+    private GameObject interacting;
 
     bool jumping = false;
 
@@ -64,6 +65,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (questionBubble.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
+            {
+                dialogueRunner.StartDialogue(interacting.name);
+                //collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
+            }
+        }
         if (textBox.GetComponent<DialogueRunner>().IsDialogueRunning)
         {
             speed = 0;
@@ -197,13 +207,9 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("interactive"))
         {
             questionBubble.SetActive(true);
+            interacting = collision.gameObject;
             questionBubble.transform.position = new Vector3(transform.position.x, transform.position.y + 4.5f, 0);
-            Debug.Log(dialogueRunner.IsDialogueRunning);
-            if (Input.GetKeyDown(KeyCode.C) && !dialogueRunner.IsDialogueRunning)
-            {
-                dialogueRunner.StartDialogue(collision.gameObject.name);
-                //collision.gameObject.GetComponent<Animator>().SetBool("talk", true);
-            }
+            //Debug.Log(dialogueRunner.IsDialogueRunning);
         }
     }
 
